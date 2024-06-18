@@ -21,7 +21,7 @@ export const unstable_settings = {
   initialRouteName: "(tabs)",
 };
 
-const CLERK_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY || "";
+const CLERK_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
 const tokenCache = {
   async getToken(key: string) {
@@ -67,8 +67,8 @@ export default function RootLayout() {
   }
 
   return (
-    <ClerkProvider publishableKey={CLERK_KEY} tokenCache={tokenCache}>
-      <RootLayoutNav />;
+    <ClerkProvider publishableKey={CLERK_KEY!} tokenCache={tokenCache}>
+      <RootLayoutNav />
     </ClerkProvider>
   );
 }
